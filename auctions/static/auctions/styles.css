@@ -1,0 +1,259 @@
+.Auction {
+    color: #3AAFA9;
+
+}
+
+.list_item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 20px;
+    list-style-type: none;
+    border: 2px solid black;
+    margin: 10px 100px;
+    background-color: rgb(240,240,240);
+    border-radius: 10px;
+    max-height: 500px;
+}
+
+.listing-content {
+    display: grid;
+    grid-template-rows: 1fr 1fr 5fr 1fr;
+    padding: 0 20px;
+    max-height: 200px;
+}
+
+.wrapper-1 {
+    height: 100px;
+    overflow-y: auto;
+}
+
+.date-time {
+    color: #5c5c5c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.date-time-bottom {
+    align-self: flex-end;
+    align-content: flex-end;
+    margin-bottom: 0;
+}
+
+.Auction:hover {
+    color: #3AAFA9;
+    text-decoration: none;
+}
+
+.layout_body {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-template-rows: 2fr 1fr;
+    position: sticky;
+    background-color: #17252A;
+    top: 0;
+    padding: 0 30px;
+    border-style: solid;
+    border-radius: 0 0 20px 20px;
+}
+
+.layout_body .nav {
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
+.nav-link {
+    border-style: none;
+    margin: 0;
+    justify-content: flex-end;
+    background-color: transparent;
+    color: #FEFFFF;
+}
+
+.nav-link:hover {
+    color: #ccc;
+}
+
+.layout_body .signed_in {
+    justify-self: center;
+    grid-column: 1/2;
+    margin-bottom: 5px;
+    color: #65CCB8;
+}
+
+.blocks {
+    padding: 10px;
+}
+
+body {
+    background-color: #DEF2F1;
+}
+
+.head {
+    color: #17252A;
+}
+
+li img {
+    border: 2px solid black; 
+    border-radius: 10px;
+    justify-self: center;
+    align-self: center;
+}
+
+.listing-image {
+    border-radius: 20px;
+    border: 5px solid #ccc;
+}
+
+.submit_button, .submit_index {
+    background-color:rgb(13,123,255);
+    color:white;
+    border-radius:5px;
+    border-color:rgb(7, 103, 219);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.submit_button:hover, .submit_index:hover {
+    background-color: rgb(6,81,211);
+    border-color: rgb(9, 97, 204);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.create_form {
+    width: 70%;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 3px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.create_form:hover {
+    background-color: rgb(240,240,240);
+}
+
+.create_form.choice:hover {
+    cursor: pointer;
+}
+
+/* Dropdown bar */
+.nav-item .dropdown {
+    overflow: hidden;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nothing-found {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.word {
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.listing-top {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+}
+
+.index-editfield {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.index-bid {
+    justify-self: flex-end;
+    align-self: center;
+}
+
+.edit-watchlist, .close-watchlist-container {
+    justify-self: flex-end;
+    align-self: center;
+}
+
+.listing-top input, .edit-watchlist input {
+    padding: 5px 8px;
+    border-radius: 8px;
+}
+
+.add{
+    background-color: transparent;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid rgb(6,81,211);
+    color:rgb(6,81,211);
+}
+
+.add:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color:#fff;
+    background-color: rgb(6,81,211);
+}
+
+.remove, .close-watchlist{
+    background-color: transparent;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid rgb(206, 41, 19);
+    color:rgb(206, 41, 19);
+}
+
+.remove:hover, .close-watchlist:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color:#fff;
+    background-color: rgb(206, 41, 19);
+}
+
+.error, .success, .winner {
+    display: grid;
+}
+
+.error div, .success div, .winner div {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: max-content;
+    padding: 15px 30px;
+    justify-self: center;
+    border-radius: 50px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.success div, .winner div {
+    background-color: #2EE59D;
+}
+
+.error div {
+    background-color: rgb(206, 41, 19);
+}
+
+.error h4, .success h4, .winner h4 {
+    margin: 0;
+    padding: 0;
+}

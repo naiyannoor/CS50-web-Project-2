@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Auctions{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="layout_body">
+            <h1><a class="Auction" href="{% url 'index' %}" title="Active Listings">Auctions</a></h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <form action="{% url 'index' %}">
+                        <input class="nav-link" type="submit" value="Active Listings">
+                    </form>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <button class="nav-link">Categories</button>
+                        <ul class="dropdown-content">
+                                <li>
+                                    <a href="{% url 'category' 'noCat' %}">
+                                        No Category
+                                    </a>
+                                </li>
+                            {% for category_name in category_names %}
+                                <li>
+                                    <a href="{% url 'category' category_name %}">
+                                        {{ category_name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'watchlist' %}">
+                            <input class="nav-link" type="submit" value="Watchlist">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'create' %}">
+                            <input class="nav-link" type="submit" value="Create Listing">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'myListings' %}">
+                            <input class="nav-link" type="submit" value="My Listings">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'logout' %}">
+                            <input class="nav-link" type="submit" value="Logout">
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <form action="{% url 'login' %}">
+                            <input class="nav-link" type="submit" value="Login">
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{% url 'register' %}">
+                            <input class="nav-link" type="submit" value="Register">
+                        </form>
+                    </li>
+                {% endif %}
+            </ul>
+            <div class="signed_in">
+                {% if user.is_authenticated %}
+                    Signed in as <strong>{{ user.username }}</strong>.
+                {% else %}
+                    Not signed in.
+                {% endif %}
+            </div>
+        </div>
+        <div class="blocks">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

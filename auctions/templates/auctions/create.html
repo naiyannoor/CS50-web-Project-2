@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Create New Listing
+{% endblock %}
+
+{% block body %}
+    {% if error_msg %}
+        <div class="error">
+            <div>
+                <h4>{{ error_msg }}</h4>
+            </div>
+        </div>
+    {% endif %}
+    {% if success_msg %}
+        <div class="success">
+            <div>
+                <h4>{{ success_msg }}</h4>
+            </div>
+        </div>
+    {% endif %}
+    <h2 class="head">Create New Listing</h2>
+    <form action="{% url 'create' %}" method="POST" id='createform'>
+        {% csrf_token %}
+        {{ CreateForm.title }}
+        {{ CreateForm.description }}
+        {{ CreateForm.price }}
+        {{ CreateForm.image_url }}
+        <p style="margin:0;">Category (optional):</p>
+        {{ CreateForm.category }}
+        {{ CreateForm.add_category }}
+        <br>
+        <input class="submit_button" type="submit" value="Create New Listing">
+    </form>
+{% endblock %}

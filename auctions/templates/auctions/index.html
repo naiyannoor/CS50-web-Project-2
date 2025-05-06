@@ -1,0 +1,59 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2 class="head">Active Listings</h2>
+    <ul>
+        {% if listings %}
+            {% for listing in listings %}
+                <li class="list_item">
+                    {% if listing.image_url %}
+                        <img src="{{ listing.image_url }}" width="200">
+                    {% else %}
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd-y-IJN8glQlf1qoU01dEgGPUa0d1-sjfWg&usqp=CAU" width="200" height="200">
+                    {% endif %}
+                    <div class="listing-content">
+                        <h3>{{ listing.title }}</h3>
+                        <p><b>Price: {{ listing.bids }}</b></p>
+                        <div class="wrapper-1">
+                            <p>{{ listing.description }}</p>
+                        </div>
+                        <p class="date-time-bottom"><span class="date-time">Created {{ listing.time_created }}</span></p>
+                    </div>
+                    <div class="index-editfield">
+                        <div class="index-bid">
+                            <form action="{% url 'listing' listing.id %}">
+                                <input class='submit_index' type="submit" value="Bid" style="padding: 5px 50px;">
+                            </form>
+                        </div>
+                        <div class="edit-watchlist">
+                            {% if user.is_authenticated %}
+                                {% if listing in user_watchlist %}
+                                    <form action="{% url 'edit' listing.id %}">
+                                        {% csrf_token %}
+                                        <input class="remove" type="submit" value="Remove from watchlist">
+                                    </form>
+                                {% else %}
+                                    <form action="{% url 'edit' listing.id %}">
+                                        {% csrf_token %}
+                                        <input class="add" type="submit" value="Add to watchlist">
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        {% else %}
+            <img class="nothing-found" src="https://img.icons8.com/material-rounded/384/nothing-found.png">
+            <h6 class="word">No Active Listing</h6>
+            <p class="word" style="font-size: 20px;">
+                <a href="{% url 'create' %}">
+                    {% if not user.is_authenticated %}
+                        Log in to
+                    {% endif %}
+                    Create New Listing
+                </a>
+            </p>
+        {% endif %}
+    </ul>
+{% endblock %}
